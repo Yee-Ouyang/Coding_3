@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iOlly 控制页面</title>
+  <style>
+    body {
+      background-color: #f6f6f6;
+      font-family: "微软雅黑";
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .button {
+      width: calc(33% - 20px);
+      height: 80px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+      line-height: 150%;
+      cursor: pointer;
+    }
+    .cB {
+      background-color: #07c160;
+    }
+    .cBStop {
+      background-color: #e64340;
+    }
+    .cBDir {
+      background-color: #f0ad4e;
+    }
+  </style>
+  <script type="text/javascript">
+    function fireCommand(value) {
+      document.getElementById(value).style.background = "#000";
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4) {
+          document.getElementById(value).style.background = '';
+        }};
+        xhttp.open("GET", "cmd.html?command="+value, true);
+        xhttp.send();
+      }
+  </script>
+</head>
+<body>
+  <h1>基础指令集</h1>
+  <div class="container">
+    <div class="button cB"     id="06" onclick="fireCommand('06')">抬头</div>
+    <div class="button cBDir"  id="01" onclick="fireCommand('01')">向前</div>
+    <div class="button cB"     id="07" onclick="fireCommand('07')">低头</div>
+    <div class="button cBDir"  id="03" onclick="fireCommand('03')">向左</div>
+    <div class="button cBStop" id="05" onclick="fireCommand('05')">重置</div>
+    <div class="button cBDir"  id="04" onclick="fireCommand('04')">向右</div>
+    <div class="button cB"     id="08" onclick="fireCommand('08')">左转</div>
+    <div class="button cBDir"  id="14" onclick="fireCommand('14')">向后</div>
+    <div class="button cB"     id="09" onclick="fireCommand('09')">右转</div>
+  </div>
+  <h1>动作指令集</h1>
+  <div class="container">
+    <div class="button cB" id="10" onclick="fireCommand('10')">点头</div>
+    <div class="button cB" id="15" onclick="fireCommand('15')">打招呼</div>
+    <div class="button cB" id="11" onclick="fireCommand('11')">摇头</div>
+    <div class="button cB" id="13" onclick="fireCommand('13')">高兴</div>
+    <div class="button cB" id="12" onclick="fireCommand('12')">俯卧撑</div>
+    <div class="button cB" id="26" onclick="fireCommand('26')">害怕</div>
+    <div class="button cB" id="16" onclick="fireCommand('16')">滑冰</div>
+    <div class="button cB" id="18" onclick="fireCommand('18')">月球漫步</div>
+    <div class="button cB" id="17" onclick="fireCommand('17')">跳舞</div>
+  </div>
+</body>
+</html>
